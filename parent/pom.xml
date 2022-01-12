@@ -118,6 +118,8 @@
 		<kotlin-coroutines>1.6.0</kotlin-coroutines>
 		<logback>1.2.5</logback>
 		<lombok>1.18.20</lombok>
+        <micrometer>2.0.0-M1</micrometer>
+        <micrometer-tracing>1.0.0-M1</micrometer-tracing>
 		<mockito>4.2.0</mockito>
 		<mockk>1.12.2</mockk>
 		<querydsl>5.0.0</querydsl>
@@ -812,7 +814,21 @@
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
-			<dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-bom</artifactId>
+                <version>${micrometer}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
+                <groupId>io.micrometer</groupId>
+                <artifactId>micrometer-tracing-bom</artifactId>
+                <version>${micrometer-tracing}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
 				<groupId>org.jetbrains.kotlin</groupId>
 				<artifactId>kotlin-bom</artifactId>
 				<version>${kotlin}</version>
@@ -1323,10 +1339,10 @@
 	</build>
 
 	<repositories>
-		<repository>
-			<id>spring-libs-snapshot</id>
-			<url>https://repo.spring.io/libs-snapshot</url>
-		</repository>
+        <repository>
+            <id>spring-libs-snapshot</id>
+            <url>https://repo.spring.io/libs-snapshot</url>
+        </repository>
 	</repositories>
 
 	<pluginRepositories>
